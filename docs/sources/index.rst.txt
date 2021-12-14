@@ -9,15 +9,10 @@ Solid-state synthesis science analyzer (S4)
 This package is designed to solve the modeling of solid-state synthesis
 in the synthesis text-mining project. It has the following objectives:
 
-1. We provided an universal interface to compute **thermodynamic quantities**
-   for **arbitrary compounds** by **interpolation using Materials Project
-   entries**.
-2. We developed a **reaction driving force cascade model** by decomposing
-   solid-state reactions into **pairwise intermediate reactions**.
-3. We created four types of synthesis features for **machine-learning prediction
-   of solid-state synthesis conditions**.
-4. We implemented machine-learning models with proper **feature engineering**,
-   **feature selection**, and **model validation** methods.
+1. Compute thermodynamic quantities for arbitrary compounds by interpolation using DFT data (from the Materials Project, MP).
+2. Decompose solid-state reactions into pairwise intermediate reactions by optimizing grand potential.
+3. Calculate synthesis features for machine-learning the prediction of solid-state synthesis conditions.
+4. Train machine-learning models by properly performing feature engineering, feature selection, and model validation methods.
 
 .. toctree::
    :maxdepth: 2

@@ -39,7 +39,7 @@ print(database.dgf('BaCO3', 300, unit='ev/atom'))
 ### Using DFT data in MP
 
 Since not every compound has direct match in MP, we perform interpolation of compounds, which is developed by 
-[Chris Bartel](https://cjbartel.github.io/). Please read the [documentation](insert link here) for the details of this
+[Chris Bartel](https://cjbartel.github.io/). Please read the [documentation](https://cedergrouphub.github.io/s4/thermodynamics.html) for the details of this
 interpolation algorithm.
 
 As an example, the following code computes the Gibbs formation energy and formation enthalpy for BaCO3.
@@ -54,7 +54,7 @@ print(database.dgf('BaCO3', 300, unit='ev/atom'))
 ```
 
 For BaCO3, the experimental values and the DFT-derived values are very close. This is because we performed additional 
-corrections to the thermodynamic data, please see the [documentation](insert link here) for details.
+corrections to the thermodynamic data, please see the [documentation](https://cedergrouphub.github.io/s4/thermodynamics.html) for details.
 
 ## Thermodynamic pairwise reaction cascade construction
 
@@ -62,7 +62,7 @@ The basic assumption of this cascade construction is the maximum reaction drivin
 the pairwise reaction happening on reactant interfaces are the ones with the maximum reaction driving force (grand 
 potential). This is demonstrated in the paper by [Bianchini et al.](https://www.nature.com/articles/s41563-020-0688-6.pdf)
 and [Miura et al.](https://onlinelibrary.wiley.com/doi/full/10.1002/adma.202100312). The details of this algorithm can 
-be found in the [documentation](insert link here).
+be found in the [documentation](https://cedergrouphub.github.io/s4/cascade.html).
 
 The following demonstrates an example from [Bianchini et al.](https://www.nature.com/articles/s41563-020-0688-6.pdf) on 
 the phase evolution of Na2O2 + CoO = NaxCoO2.
