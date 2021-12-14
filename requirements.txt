@@ -1,0 +1,14 @@
+dataclasses
+filelock
+maggma
+matplotlib
+monty
+numpy
+pandas
+pymatgen==2020.12.31
+robocrys
+scikit-learn
+scipy
+statsmodels
+sympy
+tqdm

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reaction cascade model &mdash; Solid-state synthesis science analyzer (S4) 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API References" href="api.html" />
+    <link rel="prev" title="Calculations of thermodynamic quantities" href="thermodynamics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Solid-state synthesis science analyzer (S4)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="thermodynamics.html">Calculations of thermodynamic quantities</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reaction cascade model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Solid-state synthesis science analyzer (S4)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Reaction cascade model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cascade.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reaction-cascade-model">
+<h1>Reaction cascade model<a class="headerlink" href="#reaction-cascade-model" title="Permalink to this headline"></a></h1>
+<p>All the solid-state reactions are decomposed into pairwise reactions
+using the principles developed in our previous works <a class="reference internal" href="#bianchininm2020" id="id1"><span>[BianchiniNM2020]</span></a> and <a class="reference internal" href="#miuraam2020" id="id2"><span>[MiuraAM2020]</span></a>.
+The synthesis reactions are assumed to be performed under a gas reservoir
+(<span class="math notranslate nohighlight">\(O2\)</span>, <span class="math notranslate nohighlight">\(CO2\)</span>, <span class="math notranslate nohighlight">\(N2\)</span>, <span class="math notranslate nohighlight">\(NH3\)</span>) by which gas partial
+pressures are kept constant. Therefore, the relevant grand potential change
+are calculated as the reaction driving force <span class="math notranslate nohighlight">\(\Delta \Phi_{rxn} = \Phi_{products} - \Phi_{reactants}\)</span>.
+The chemical potential of gas species is calculated using the relation
+<span class="math notranslate nohighlight">\(\mu (T) = \Delta G_f (T) + RT\ln p\)</span>, where <span class="math notranslate nohighlight">\(\Delta G_f(T)\)</span> is the
+experimentally determined Gibbs free energy of formation, <span class="math notranslate nohighlight">\(R\)</span> is
+the gas constant, and <span class="math notranslate nohighlight">\(p\)</span> is the effective partial pressure of the
+gas in normal atmospheric conditions.</p>
+<p>The following figure demonstrates an example of the pairwise reaction
+cascade construction. Starting with precursor compounds A, B, and C, we
+first enumerate all possible pairs of precursor compounds, e.g., <span class="math notranslate nohighlight">\(\{\ce{A}, \ce{B}\}\)</span>,
+<span class="math notranslate nohighlight">\(\{\ce{A}, \ce{C}\}\)</span>, and <span class="math notranslate nohighlight">\(\{\ce{B}, \ce{C}\}\)</span>. For each pair
+of precursors, we identify all possible pairwise reactions (e.g.,
+<span class="math notranslate nohighlight">\(\ce{A} + \ce{C} \to \ce{AC}\)</span>) by enumerating all MP entries.
+These pairwise reactions are normalized per mole of non-gas elements
+(e.g., the target compound <span class="math notranslate nohighlight">\(SrTiO_3\)</span> is normalized by 2). We select
+the reaction with lowest reaction driving force <span class="math notranslate nohighlight">\(\Delta \Phi_{rxn}\)</span>
+and use it to consume as much precursor compounds as possible. Note that
+the reaction driving force is not necessarily negative to tolerate some
+uncertainties in our calculated thermodynamics. This process is repeated
+until no possible pairwise reaction could be constructed.</p>
+<figure class="align-center" id="id3">
+<img alt="Cascade model demonstration" src="_images/cascade-model.png" />
+<figcaption>
+<p><span class="caption-text">Schematics of the cascade model. We start with the precursors, and each
+time choose the reaction with lowest energies (normalized by metal cations,
+or grand potential). The process is repeated until there is no more possible
+pairwise reactions.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<dl class="citation">
+<dt class="label" id="bianchininm2020"><span class="brackets"><a class="fn-backref" href="#id1">BianchiniNM2020</a></span></dt>
+<dd><p>Bianchini, Matteo, et al. “The interplay between
+thermodynamics and kinetics in the solid-state synthesis of layered
+oxides.” Nature materials 19.10 (2020): 1088-1095.</p>
+</dd>
+<dt class="label" id="miuraam2020"><span class="brackets"><a class="fn-backref" href="#id2">MiuraAM2020</a></span></dt>
+<dd><p>Miura, Akira, et al. “Observing and Modeling the Sequential
+Pairwise Reactions that Drive Solid‐State Ceramic Synthesis.” Advanced
+Materials (2021): 2100312.</p>
+</dd>
+</dl>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="thermodynamics.html" class="btn btn-neutral float-left" title="Calculations of thermodynamic quantities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Haoyan Huo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
