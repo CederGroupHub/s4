@@ -17,7 +17,7 @@ On the other hand, DFT databases contain enough entries covering much of the che
 interpolation if the compound has no direct match in the DFT database. Therefore, thermodynamic quantities of most
 compounds can be calculated in this way.
 
-#### Using experimental databases
+### Using experimental databases
 
 We used the FREED database to compute thermodynamic quantities using experimentally determined data. 
 [FREED database](https://www.thermart.net/freed-thermodynamic-database/) is an electronic compilation of the U.S. Bureau 
@@ -36,7 +36,7 @@ print(database.dgf('BaCO3', 300, unit='ev/atom'))
 # Prints -2.345862145732135
 ```
 
-#### Using DFT data in MP
+### Using DFT data in MP
 
 Since not every compound has direct match in MP, we perform interpolation of compounds, which is developed by 
 [Chris Bartel](https://cjbartel.github.io/). Please read the [documentation](insert link here) for the details of this
@@ -56,7 +56,7 @@ print(database.dgf('BaCO3', 300, unit='ev/atom'))
 For BaCO3, the experimental values and the DFT-derived values are very close. This is because we performed additional 
 corrections to the thermodynamic data, please see the [documentation](insert link here) for details.
 
-### Thermodynamic pairwise reaction cascade construction
+## Thermodynamic pairwise reaction cascade construction
 
 The basic assumption of this cascade construction is the maximum reaction driving force hypothesis, which states that 
 the pairwise reaction happening on reactant interfaces are the ones with the maximum reaction driving force (grand 
@@ -127,7 +127,7 @@ compute_cascade(reaction, [500]*10, only_icsd=False)
 #   'reason': 'cascade: determined by minimizing dG/m.a'}]
 ```
 
-### Computing synthesis features for solid-state synthesis reactions
+## Computing synthesis features for solid-state synthesis reactions
 
 In this package, we compute four types of synthesis features (133 features in total). 
 
@@ -158,7 +158,7 @@ featurizer = Featurizer()
 features = featurizer.featurize(reaction, exp_t=800, exp_time=6)
 ```
 
-### Citation
+## Citation
 
 If you find this package useful, please consider citing the following paper:
 
