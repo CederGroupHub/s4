@@ -8,6 +8,11 @@ It has the following objectives:
 3. Calculate synthesis features for machine-learning the prediction of solid-state synthesis conditions.
 4. Train machine-learning models by properly performing feature engineering, feature selection, and model validation methods.
 
+#### Documentation
+
+Please refer to this [documentation](https://cedergrouphub.github.io/s4/cascade.html) for a list of package details,
+the algorithms, and API references.
+
 ## Thermodynamic quantity calculation
 
 In this package, the thermodynamic quantity can be calculated using either experimental databases and DFT data from MP.
@@ -65,30 +70,45 @@ and [Miura et al.](https://onlinelibrary.wiley.com/doi/full/10.1002/adma.2021003
 be found in the [documentation](https://cedergrouphub.github.io/s4/cascade.html).
 
 The following demonstrates an example from [Bianchini et al.](https://www.nature.com/articles/s41563-020-0688-6.pdf) on 
-the phase evolution of Na2O2 + CoO = NaxCoO2.
+the phase evolution of Na2O2 + CoO = NaxCoO2. It also demonstrates the usage of using MP entries to interpolate 
+thermodynamic quantities.
 
 ```python
-from s4.tmr import ReactionEnergies, MaterialWithEnergy, MPInterpolatedMaterial
+from s4.tmr import (
+    ReactionEnergies, 
+    MaterialWithEnergy, 
+    MPInterpolatedMaterial,
+    MPUniverseInterpolation)
 from s4.cascade.analysis import compute_cascade
 from s4.thermo.calc.mp import query_system
 from pymatgen import Composition as C
 
+interp = MPUniverseInterpolation()
+
+def dft_thermo(comp_str):
+    interpolated = interp.interpolate(comp_str)
+    compositions, info = zip(*interpolated.items())
+    return MPInterpolatedMaterial(
+        compositions=compositions, 
+        amounts=[x['amt'] for x in info], 
+        mp_entries=[query_system(x.formula)[0] for x in compositions])
+    
 reaction = ReactionEnergies(
     target=C('Na2(CoO2)3'),
     vars_sub={},
     species=[
         MaterialWithEnergy(
-            thermo=MPInterpolatedMaterial(
-                compositions=[C('Na2(CoO2)3')], amounts=[1./3], mp_entries=[query_system('Na2(CoO2)3')[0]]),
-            composition=C('Na2(CoO2)3'), is_target=True, side='product', amt=1./3),
+            thermo=dft_thermo('Na2(CoO2)3'),
+            composition=C('Na2(CoO2)3'), 
+            is_target=True, side='product', amt=1./3),
         MaterialWithEnergy(
-            thermo=MPInterpolatedMaterial(
-                compositions=[C('CoO')], amounts=[1.], mp_entries=[query_system('CoO')[0]]),
-            composition=C('CoO'), is_target=False, side='reactant', amt=1.),
+            thermo=dft_thermo('CoO'),
+            composition=C('CoO'), 
+            is_target=False, side='reactant', amt=1.),
         MaterialWithEnergy(
-            thermo=MPInterpolatedMaterial(
-                compositions=[C('Na2O2')], amounts=[1./3], mp_entries=[query_system('Na2O2')[0]]),
-            composition=C('Na2O2'), is_target=False, side='reactant', amt=1./3),
+            thermo=dft_thermo('Na2O2'),
+            composition=C('Na2O2'), 
+            is_target=False, side='reactant', amt=1./3),
     ]
 )
 
