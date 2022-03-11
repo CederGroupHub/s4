@@ -90,7 +90,9 @@ class GasMaterial:
         :param temperature: Temperature for which chemical potential is calculated..
         :return: Chemical potential at the specified temperature.
         """
-        return get_gas_mu(self.composition, temperature, self.fugacity)
+        return get_gas_mu(
+            self.composition, temperature, self.fugacity
+        ) / sum(self.composition.values())
 
 
 @dataclass
