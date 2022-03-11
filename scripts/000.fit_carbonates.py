@@ -11,7 +11,7 @@ oxides.
 import matplotlib.pyplot as plt
 import numpy
 import pandas
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 from scipy import optimize
 
 from s4.thermo.calc.mp import rester

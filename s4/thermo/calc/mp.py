@@ -8,7 +8,7 @@ from typing import List, Union
 
 import numpy as np
 from filelock import FileLock
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 from pymatgen import Element, MPRester
 from pymatgen.core.periodic_table import _pt_data
 from pymatgen.entries.computed_entries import ComputedEntry

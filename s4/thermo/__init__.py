@@ -2,7 +2,7 @@
 Patch pymatgen hash function in order to get it work better than lru_cache().
 """
 
-from pymatgen import Composition
+from pymatgen.core import Composition
 
 
 def pymatgen_composition_hash(self):

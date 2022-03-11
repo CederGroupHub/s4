@@ -5,7 +5,7 @@ from multiprocessing.pool import Pool
 
 import numpy as np
 import synthesis_dataset
-from pymatgen import Composition as _C
+from pymatgen.core import Composition as _C
 from tqdm import tqdm
 
 from s4.cascade.balance import quick_balance

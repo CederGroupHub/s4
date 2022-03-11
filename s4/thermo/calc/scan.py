@@ -5,7 +5,7 @@ from typing import List, Union
 
 from filelock import FileLock
 from maggma.stores import MongoStore
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 from pymatgen import Element
 from pymatgen.entries.computed_entries import ComputedEntry
 

@@ -7,7 +7,7 @@ from typing import List, Optional, Dict
 import numpy
 import pandas
 from pandas import Series
-from pymatgen import Composition as _C
+from pymatgen.core import Composition as _C
 
 from s4.data import open_data
 from s4.thermo.utils import convert_unit, fit_and_predict
