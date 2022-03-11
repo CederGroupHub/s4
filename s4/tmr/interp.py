@@ -4,7 +4,7 @@ from typing import Union, Dict, Set, Tuple, List
 
 import numpy as np
 import scipy.optimize
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 from scipy.optimize import minimize
 
 from s4.data import open_data

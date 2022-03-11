@@ -5,7 +5,7 @@ from collections import defaultdict
 from typing import Dict, Tuple
 
 import numpy
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 from pymatgen.core.composition import CompositionError
 
 from s4.cascade.analysis import compute_cascade

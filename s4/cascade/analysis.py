@@ -4,7 +4,7 @@ from functools import reduce
 from operator import or_, add
 from typing import List
 
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 
 from s4.cascade.balance import quick_balance
 from s4.cascade.cascade_model import cascade_step

@@ -3,7 +3,7 @@ import logging
 from typing import List, Optional, Dict
 
 import numpy
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 
 from s4.cascade.thermo import reaction_driving_force
 from s4.thermo.constants import ATM_GAS_PARTIALS
