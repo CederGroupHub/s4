@@ -14,7 +14,7 @@ from typing import Dict
 
 import numpy
 import pandas
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 from tqdm import tqdm
 
 from s4.data import open_data

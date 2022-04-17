@@ -81,7 +81,7 @@ from s4.tmr import (
     MPUniverseInterpolation)
 from s4.cascade.analysis import compute_cascade
 from s4.thermo.calc.mp import query_system
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 
 interp = MPUniverseInterpolation()
 

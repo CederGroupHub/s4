@@ -1,6 +1,6 @@
 """Generic types used in this package."""
 from typing import Union
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 
 __author__ = 'Haoyan Huo'
 __email__ = 'haoyan.huo@lbl.gov'

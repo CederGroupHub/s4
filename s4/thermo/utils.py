@@ -5,7 +5,7 @@ __author__ = 'Haoyan Huo'
 __email__ = 'haoyan.huo@lbl.gov'
 __maintainer__ = 'Haoyan Huo'
 
-from pymatgen import Composition
+from pymatgen.core import Composition
 
 from s4.types import Comp
 

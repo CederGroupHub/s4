@@ -5,7 +5,7 @@ from typing import List, Tuple
 import numpy
 import sympy
 from numpy.linalg import LinAlgError
-from pymatgen import Composition as _C
+from pymatgen.core import Composition as _C
 
 from s4.types import Comp
 

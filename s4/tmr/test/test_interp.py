@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 
 from s4.tmr.interp import MPUniverseInterpolation
 

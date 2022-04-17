@@ -8,7 +8,7 @@ from math import log
 from threading import Lock
 from typing import List
 
-from pymatgen import Composition as C
+from pymatgen.core import Composition as C
 from pymatgen.entries.computed_entries import ComputedEntry
 
 from s4.cache import CACHE_DIR
@@ -90,7 +90,10 @@ class GasMaterial:
         :param temperature: Temperature for which chemical potential is calculated..
         :return: Chemical potential at the specified temperature.
         """
-        return get_gas_mu(self.composition, temperature, self.fugacity) / sum(self.composition.values())
+
+        return get_gas_mu(
+            self.composition, temperature, self.fugacity
+        ) / sum(self.composition.values())
 
 
 @dataclass

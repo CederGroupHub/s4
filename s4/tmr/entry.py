@@ -8,7 +8,7 @@ from multiprocessing import Pool
 from typing import Dict, List, Optional, Union, Tuple
 
 import numpy as np
-from pymatgen import Composition as _C
+from pymatgen.core import Composition as _C
 from pymatgen.core.composition import CompositionError
 from tqdm import tqdm
 
