@@ -8,7 +8,7 @@ from typing import List, Dict, Set, Mapping, Tuple, Optional
 import dataclasses as dataclasses
 import numpy
 from monty.fractions import gcd
-from pymatgen import Element, Composition
+from pymatgen.core import Element, Composition
 from pymatgen.entries.computed_entries import ComputedEntry
 from pymatgen.util.string import formula_double_format
 from scipy.interpolate import interp1d

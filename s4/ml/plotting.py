@@ -7,7 +7,7 @@ import numpy
 import pandas
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from pandas.api.types import is_float_dtype, is_bool_dtype
-from pymatgen import Element
+from pymatgen.core import Element
 from sklearn.metrics import confusion_matrix
 from scipy.stats import norm
 
@@ -90,6 +90,8 @@ def periodic_table_heatmap_sbs(  # pylint: disable=too-many-arguments
         value_format: Optional[str] = None,
         include_rows: Optional[List[int]] = None,
         ax=None,
+        pt_label_fontsize=9,
+        pt_value_fontsize=6,
 ):
     """
     Plot heatmaps side-by-side.
@@ -106,6 +108,8 @@ def periodic_table_heatmap_sbs(  # pylint: disable=too-many-arguments
     :param value_format: Formatter to use for values.
     :param include_rows: What rows to include in the plot.
     :param ax: Ax to put the periodic table.
+    :param pt_label_fontsize: Font size for periodic table cells.
+    :param pt_value_fontsize: Font size for periodic table cell values.
     """
 
     # pylint: disable=too-many-locals
@@ -203,7 +207,7 @@ def periodic_table_heatmap_sbs(  # pylint: disable=too-many-arguments
             element.symbol,
             horizontalalignment="center",
             verticalalignment="center",
-            fontsize=9,
+            fontsize=pt_label_fontsize,
             color='k',
         )
         if values[0] != blank_value and value_format is not None:
@@ -213,7 +217,7 @@ def periodic_table_heatmap_sbs(  # pylint: disable=too-many-arguments
                 value_format % values[0],
                 horizontalalignment="left",
                 verticalalignment="center",
-                fontsize=6,
+                fontsize=pt_value_fontsize,
                 color='k',
             )
         if values[1] != blank_value and value_format is not None:
@@ -223,7 +227,7 @@ def periodic_table_heatmap_sbs(  # pylint: disable=too-many-arguments
                 value_format % values[1],
                 horizontalalignment="right",
                 verticalalignment="center",
-                fontsize=6,
+                fontsize=pt_value_fontsize,
                 color='k',
             )
 

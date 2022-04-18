@@ -1,6 +1,6 @@
 """Structural features of reactions."""
 from pymatgen.analysis.local_env import CrystalNN
-from robocrys.condense.site import SiteAnalyzer
+# from robocrys.condense.site import SiteAnalyzer
 
 
 class GeometryAnalyzer:
