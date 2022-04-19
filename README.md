@@ -182,5 +182,13 @@ features = featurizer.featurize(reaction, exp_t=800, exp_time=6)
 
 If you find this package useful, please consider citing the following paper:
 
-* Haoyan Huo, et. al. Machine-learning rationalization and prediction of solid-state synthesis
-  conditions, 2021, in preparation.
+```
+@misc{huo2022machinelearning,
+      title={Machine-learning rationalization and prediction of solid-state synthesis conditions}, 
+      author={Haoyan Huo and Christopher J. Bartel and Tanjin He and Amalie Trewartha and Alexander Dunn and Bin Ouyang and Anubhav Jain and Gerbrand Ceder},
+      year={2022},
+      eprint={2204.08151},
+      archivePrefix={arXiv},
+      primaryClass={cond-mat.mtrl-sci}
+}
+```
