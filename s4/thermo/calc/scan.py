@@ -6,7 +6,7 @@ from typing import List, Union
 from filelock import FileLock
 from maggma.stores import MongoStore
 from pymatgen.core import Composition as C
-from pymatgen import Element
+from pymatgen.core import Element
 from pymatgen.entries.computed_entries import ComputedEntry
 
 from s4.thermo.calc.finite_g import finite_dg_correction
