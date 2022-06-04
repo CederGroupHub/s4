@@ -9,7 +9,8 @@ from typing import List, Union
 import numpy as np
 from filelock import FileLock
 from pymatgen.core import Composition as C
-from pymatgen import Element, MPRester
+from pymatgen.core import Element
+from pymatgen.ext.matproj import MPRester
 from pymatgen.core.periodic_table import _pt_data
 from pymatgen.entries.computed_entries import ComputedEntry
 from pymatgen.ext.matproj import MPRestError
