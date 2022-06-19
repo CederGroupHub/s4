@@ -88,18 +88,19 @@ def pcd_to_reactions():
 
     argparser.add_argument('--output-fn', '-o', type=str, default='PCD_Reactions.pypickle',
                            help='Output filename.')
+    argparser.add_argument('--pcd-path', type=str, required=True, default="PCDBalanced/oxides")
 
     args = argparser.parse_args()
 
     pcd_dataset = synthesis_dataset.PCDDataset.get_PCD_data()
-    pcd_oxides = pcd_dataset.loc[pcd_dataset.path.apply(lambda x: x.startswith('PCDBalanced/oxides'))]
+    pcd_subset = pcd_dataset.loc[pcd_dataset.path.apply(lambda x: x.startswith(args.pcd_path))]
 
     reactions = {}
 
     with Pool(processes=cpu_count()) as pool:
         for k, data in tqdm(pool.starmap(
                 from_pcd_entry_safe,
-                [(row, str(row_id)) for row_id, row in pcd_oxides.iterrows()]), total=len(pcd_oxides)):
+                [(row, str(row_id)) for row_id, row in pcd_subset.iterrows()]), total=len(pcd_subset)):
 
             if data:
                 reactions[k] = data

@@ -312,6 +312,4 @@ class Featurizer:
         return entry
 
     def __call__(self, args):
-        reaction, k, i, exp_t, exp_time, tms_data = args
-        return self.featurize(
-            reaction, k, i, exp_t, exp_time, tms_data)
+        return self.featurize(**args)

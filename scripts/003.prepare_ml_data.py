@@ -183,11 +183,15 @@ def generate_df_for_prediction(
             for i, reaction_cascade in recipe_cascades:
                 precursors = tuple(sorted(reaction_cascade[0]['previous_vessel']))
                 precursor_counter[precursors] += 1
-                jobs.append((
-                    recipe.reactions[i], k, i,
-                    recipe.exp_t, recipe.exp_time,
-                    tms_recipes[k]
-                ))
+                jobs.append({
+                    "reaction": recipe.reactions[i],
+                    "k": k,
+                    "i": i,
+                    "exp_t": recipe.exp_t,
+                    "exp_time": recipe.exp_time,
+                    "tms_data": tms_recipes[k],
+                    # "calculate_thermo_bounds": False,
+                })
 
         training_data = []
         for row in tqdm(pool.imap_unordered(featurizer, jobs), desc='Featurizing', total=len(jobs)):
