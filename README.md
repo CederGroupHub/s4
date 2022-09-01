@@ -183,12 +183,17 @@ features = featurizer.featurize(reaction, exp_t=800, exp_time=6)
 If you find this package useful, please consider citing the following paper:
 
 ```
-@misc{huo2022machinelearning,
-      title={Machine-learning rationalization and prediction of solid-state synthesis conditions}, 
-      author={Haoyan Huo and Christopher J. Bartel and Tanjin He and Amalie Trewartha and Alexander Dunn and Bin Ouyang and Anubhav Jain and Gerbrand Ceder},
-      year={2022},
-      eprint={2204.08151},
-      archivePrefix={arXiv},
-      primaryClass={cond-mat.mtrl-sci}
+@article{
+  doi:10.1021/acs.chemmater.2c01293,
+  author = {Huo, Haoyan and Bartel, Christopher J. and He, Tanjin and Trewartha, Amalie and Dunn, Alexander and Ouyang, Bin and Jain, Anubhav and Ceder, Gerbrand},
+  title = {Machine-Learning Rationalization and Prediction of Solid-State Synthesis Conditions},
+  journal = {Chemistry of Materials},
+  volume = {34},
+  number = {16},
+  pages = {7323-7336},
+  year = {2022},
+  doi = {10.1021/acs.chemmater.2c01293},
+  URL = {https://doi.org/10.1021/acs.chemmater.2c01293},
+  eprint = {https://doi.org/10.1021/acs.chemmater.2c01293}
 }
 ```
